@@ -1,0 +1,39 @@
+/*
+ * @Author: Hevin
+ * @首页header
+ */
+
+import React, {Component, PropTypes} from 'react'
+import { Link } from 'react-router-dom'
+import { Icon } from 'antd-mobile'
+
+require('./header.less')
+export default class Header extends Component {
+	renderContent(props) {
+		// 首页header
+		if(props == 'Home'){
+			return (
+				<header id="indexHeader" >
+					<div className="home-header-bar">
+						  <Icon type={require('../../assets/svg/email.svg')} size="lg" color="#fff"  className="fl homeEmail"/>
+			            <span className="logo">
+			                今日头条
+			            </span>
+			            <Link to="/search" className="search fr">
+			               <Icon type="search" size="sm"  color="#fff"   className="homeSearch"/>
+			            </Link>
+		            </div>
+				</header>
+			)
+		}
+		
+	}
+	render() {
+		return (
+			 <div>
+			 	{this.renderContent(this.props.from)}
+			 </div>
+		)
+	}
+}
+
